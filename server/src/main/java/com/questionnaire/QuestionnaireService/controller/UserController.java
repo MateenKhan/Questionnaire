@@ -13,9 +13,11 @@ import java.util.Optional;
 @Transactional
 public class UserController {
 
+    public UserController(UserRepository userRepository){
+        this.userRepository = userRepository;
+    }
 
-    @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @PostMapping("/users")
     public User create(@RequestBody User user) {
