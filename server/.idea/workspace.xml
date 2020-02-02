@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7483979-86aa-451d-abd0-be0cab91b85c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ui/questions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/custom.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ui/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ui/questions.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/questions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ui/questions.js" beforeDir="false" afterPath="$PROJECT_DIR$/../ui/questions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,23 +104,31 @@
       <option name="project" value="LOCAL" />
       <updated>1580651573602</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added browser storage support">
+      <created>1580652189234</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1580652189234</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added swagger and cors and integrated login ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="added swagger and cors and integrated login ui" />
+    <MESSAGE value="added browser storage support" />
+    <option name="LAST_COMMIT_MESSAGE" value="added browser storage support" />
   </component>
   <component name="WindowStateProjectService">
     <state x="233" y="3" key="#Project_Structure" timestamp="1580649552045">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="3" key="#Project_Structure/0.0.1280.680@0.0.1280.680" timestamp="1580649552045" />
-    <state x="418" y="0" width="700" height="824" key="CommitChangelistDialog2" timestamp="1580651572962">
+    <state x="418" y="0" width="700" height="824" key="CommitChangelistDialog2" timestamp="1580652188590">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="418" y="0" width="700" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1580651572962" />
+    <state x="418" y="0" width="700" height="824" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1580652188590" />
     <state x="421" y="99" key="FileChooserDialogImpl" timestamp="1580649546858">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -171,10 +177,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="221" y="80" key="IDE.errors.dialog/0.0.1280.680@0.0.1280.680" timestamp="1580649567937" />
-    <state x="361" y="149" key="Vcs.Push.Dialog.v2" timestamp="1580651576026">
+    <state x="361" y="149" key="Vcs.Push.Dialog.v2" timestamp="1580652190950">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="149" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1580651576026" />
+    <state x="361" y="149" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1580652190950" />
     <state x="0" y="0" width="712" height="680" key="find.popup" timestamp="1580650297421">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

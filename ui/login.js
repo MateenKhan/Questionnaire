@@ -10,14 +10,14 @@ function login() {
         'contentType': 'application/json; charset=utf-8',
         data: JSON.stringify(jsonData)
     })
-        .done(function (response) {
-            afterLogin(response);
-        });
+    .done(function (response) {
+        afterLogin(response);
+    });
 }
 
 function afterLogin(response) {
     if (response) {
-        sessionStorage.setItem("user", response);
+        sessionStorage.setItem("user", JSON.stringify(response));
         window.location.href = "questions.html"
     } else {
         alert("Invalid Credentilas!");
