@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -26,7 +27,11 @@ public class UserController {
 
     @PostMapping("/login")
     public User login(@RequestBody User user) {
-        return userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        User dbUser = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        if(dbUser!=null){
+            dbUser.setLoginAt(new Date().getTime());
+        }
+        return dbUser;
     }
 
     @GetMapping("/users")

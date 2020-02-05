@@ -18,4 +18,5 @@ public class User {
     private String password;
     private String name;
     private String field;
+    private Long loginAt;
 }

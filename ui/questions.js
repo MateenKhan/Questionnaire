@@ -91,6 +91,7 @@ function redirectToLogin() {
 }
 
 function loadPrevQuestion(){
+    isLast=false;
     let user = sessionStorage.getItem("user");
     if (user) {
         let userObj = JSON.parse(user);
