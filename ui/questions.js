@@ -58,15 +58,20 @@ function getnerateNextQuestion(nextQuestion) {
     if (nextQuestion) {
         $("#questions").html("");
         $.each(nextQuestion.content, function (index, value) {
-            let questionDiv = $("<h2></h2>").text(value.question);
-            $("#questions").append(questionDiv);
-            let questionIdDiv = $("<h2 style='display:none' id='questionId'></h2>").text(value.id);
-            $("#questions").append(questionIdDiv);
-            let answers = JSON.parse(value.answers);
-            $.each(answers, function (index, value) {
-                let answerDiv='<input type="radio" name="optradio" value='+value+'><span>'+value+'</span><br>'
-                $("#questions").append(answerDiv);
-            }); 
+            if(!value.hyperLink){
+                let questionDiv = $("<h2></h2>").text(value.question);
+                $("#questions").append(questionDiv);
+                let questionIdDiv = $("<h2 style='display:none' id='questionId'></h2>").text(value.id);
+                $("#questions").append(questionIdDiv);
+                let answers = JSON.parse(value.answers);
+                $.each(answers, function (index, value) {
+                    let answerDiv='<input type="radio" name="optradio" value='+value+'><span>'+value+'</span><br>'
+                    $("#questions").append(answerDiv);
+                }); 
+            } else{
+                $("#questionsDiv").hide();
+                $("#linkDiv").show();
+            }
         });
 
         if(!nextQuestion.first){
