@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Questionare</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="addQuestion.js"></script>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="table-responsive">
+                    <table class="table" id="qusetionsTable">
+                        <caption>List of Questions</caption>
+                        <button onclick="addRow()">Add</button>
+                        <button onclick="saveAll()">SaveAll</button>
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Field</th>
+                            <th scope="col">answers</th>
+                            <th scope="col">question</th>
+                            <th scope="col">QuestionType</th>
+                            <th scope="col">QuestionLink</th>
+                            <th scope="col">VerifyDetails</th>
+                            <th scope="col">actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          
+                        </tbody>
+                      </table>
+                  </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
