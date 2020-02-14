@@ -35,7 +35,6 @@ public class QuestionController {
 
     @GetMapping("/questions")
     public Iterable<Question> getAll(){
-
         return questionRepository.findAll();
     }
 
@@ -53,6 +52,12 @@ public class QuestionController {
     @DeleteMapping("/questions/{id}")
     public ResponseEntity deleteById(@PathVariable("id") int id) {
         questionRepository.deleteById(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("/questions/multiple")
+    public ResponseEntity deleteAll() {
+        questionRepository.deleteAll();
         return ResponseEntity.ok().build();
     }
 

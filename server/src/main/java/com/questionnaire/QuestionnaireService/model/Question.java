@@ -22,4 +22,5 @@ public class Question {
     private String question;
     private String questionType;
     private String hyperLink;
+    private String verifyDetails;
 }

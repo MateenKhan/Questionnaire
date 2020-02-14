@@ -19,5 +19,6 @@ public class User {
     private String name;
     private String field;
     private Long loginAt;
+    private String band;
     private Long questionsToCompleteTimeInSeconds;
 }
