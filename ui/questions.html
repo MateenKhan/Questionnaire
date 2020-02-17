@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="questions.js"></script>
+    <link rel="stylesheet" type="text/css" href="questions.css">
 
 
 </head>
@@ -16,23 +17,36 @@
 <body>
 
 
-    <div class="container" id="questionsDiv">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="questions card" id="questions">
+    <div class="container-fluid">
+        <div class="row question-container">
+            <div class="col-lg-5 col-md-6 col-sm-12" id="questions">
+                <h3>Latest version of Ubuntu</h3>
+                <form action="#">
+                  <p>
+                    <input type="radio" id="test1" name="optradio" checked>
+                    <label for="test1">10</label>
+                  </p>
+                  <p>
+                    <input type="radio" id="test2" name="optradio">
+                    <label for="test2">12</label>
+                  </p>
+                  <p>
+                    <input type="radio" id="test3" name="optradio">
+                    <label for="test3">16</label>
+                  </p>
+                  <p>
+                    <input type="radio" id="test4" name="optradio">
+                    <label for="test4">18</label>
+                  </p>
+                </form>
 
-                    <input type="radio" name="gender" value="male"> <span>Male</span><br>
-                    <input type="radio" name="gender" value="male"> <span>female</span><br>
-                    <input type="radio" name="gender" value="male"> <span>asdf</span><br>
+                <div class="col-12 text-right" id="buttonsDiv">
+                    <button type="button" class="btn" >Previous</button>
+                    <button type="button" class="btn">Next</button>
                 </div>
-
-
             </div>
         </div>
     </div>
-
-
-    
 
 </body>
 

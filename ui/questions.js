@@ -33,7 +33,10 @@ function getNextQuestion() {
 
 function submitAnswer(){
     let questionId = $("#questionId").text();
-    let answer = $("input[name='optradio']:checked").val();
+    let answer = $("input[name='optradio']:checked").next().text();
+    if(!answer){
+        return;
+    }
     let jsonData = {
         "questionId": questionId,
         "userEmail": userObj.email,
@@ -58,14 +61,16 @@ function getnerateNextQuestion(nextQuestion) {
     if (nextQuestion) {
         $("#questions").html("");
         $.each(nextQuestion.content, function (index, value) {
-            if(!value.hyperLink){
-                let questionDiv = $("<h2></h2>").text(value.question);
+            if(!value.hyperLink || value.hyperLink ==='null'){
+                let questionDiv = $("<h3></h3>").text(value.question);
                 $("#questions").append(questionDiv);
-                let questionIdDiv = $("<h2 style='display:none' id='questionId'></h2>").text(value.id);
+                let questionIdDiv = $("<h3 style='display:none' id='questionId'></h2>").text(value.id);
                 $("#questions").append(questionIdDiv);
                 let answers = JSON.parse(value.answers);
                 $.each(answers, function (index, value) {
-                    let answerDiv='<input type="radio" name="optradio" value='+value+'><span>'+value+'</span><br>'
+                    let answerDiv='<p><input type="radio" id="radio'+index+'" name="optradio">'+
+                                  '<label for="radio'+index+'">'+value+'</label></p>';
+                    // let answerDiv='<input type="radio" name="optradio" value='+value+'><span>'+value+'</span><br>'
                     $("#questions").append(answerDiv);
                 }); 
             } else{
@@ -73,15 +78,18 @@ function getnerateNextQuestion(nextQuestion) {
                 $("#linkDiv").show();
             }
         });
-
+        $("#questions").append('<div class="col-12 text-right" id="buttonsDiv"></div>');
         if(!nextQuestion.first){
-            $("#questions").append('<button type="button" class="btn btn-info" onclick="loadPrevQuestion()">Previous</button>');
+            $("#buttonsDiv").append('<button type="button" class="btn" onclick="loadPrevQuestion()" >Previous</button>');
+            // $("#buttonsDiv").append('<button type="button" class="btn btn-info" onclick="loadPrevQuestion()">Previous</button>');
         }
         if(nextQuestion.last){
             isLast=true;
-            $("#questions").append('<button type="button" class="btn btn-success" onclick="submitAnswer()">Submit</button>');
+            $("#buttonsDiv").append('<button type="button" class="btn" onclick="submitAnswer()" >Submit</button>');
+            // $("#questions").append('<button type="button" class="btn btn-success" onclick="submitAnswer()">Submit</button>');
         } else {
-            $("#questions").append('<button type="button" class="btn btn-success" onclick="getNextQuestion()">Next</button>');
+            $("#buttonsDiv").append('<button type="button" class="btn" onclick="getNextQuestion()" >Next</button>');
+            // $("#questions").append('<button type="button" class="btn btn-success" onclick="getNextQuestion()">Next</button>');
         }
 
 
@@ -105,9 +113,9 @@ function loadPrevQuestion(){
             url: baseUrl + "questions/paginated/" + userObj.field + "?page=" + (--page) + "&size=" + size,
             'contentType': 'application/json; charset=utf-8'
         })
-            .done(function (response) {
-                getnerateNextQuestion(response);
-            });
+        .done(function (response) {
+            getnerateNextQuestion(response);
+        });
     } else {
         redirectToLogin();
     }
