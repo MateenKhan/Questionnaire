@@ -4,6 +4,7 @@ let page = -1;
 let size = 1;
 let userObj;
 let isLast= false;
+let isLinkQuestion =false;
 var currentQuestionPointer = 0;
 $(document).ready(function () {
     getNextQuestion();
@@ -59,37 +60,42 @@ function submitAnswer(){
 
 function getnerateNextQuestion(nextQuestion) {
     if (nextQuestion) {
-        $("#questions").html("");
+        $("#questions, #linkDiv").html("");
+        let activeDiv;
         $.each(nextQuestion.content, function (index, value) {
+            $("#questionId").remove();
+            let questionIdDiv = $("<h3 style='display:none' id='questionId'></h2>").text(value.id);
+            $("body").append(questionIdDiv);
             if(!value.hyperLink || value.hyperLink ==='null'){
+                $("#questions").show();
+                $("#linkDiv").hide();
+                activeDiv = $("#questions");
                 let questionDiv = $("<h3></h3>").text(value.question);
                 $("#questions").append(questionDiv);
-                let questionIdDiv = $("<h3 style='display:none' id='questionId'></h2>").text(value.id);
-                $("#questions").append(questionIdDiv);
                 let answers = JSON.parse(value.answers);
                 $.each(answers, function (index, value) {
                     let answerDiv='<p><input type="radio" id="radio'+index+'" name="optradio">'+
                                   '<label for="radio'+index+'">'+value+'</label></p>';
-                    // let answerDiv='<input type="radio" name="optradio" value='+value+'><span>'+value+'</span><br>'
                     $("#questions").append(answerDiv);
                 }); 
             } else{
-                $("#questionsDiv").hide();
+                isLinkQuestion = true;
+                activeDiv = $("#linkDiv");
+                $("#questions").hide();
                 $("#linkDiv").show();
+                $("#linkDiv").append('<div class="col-sm-4" id="linkQuestionDiv">'+value.question+'</div>');
+                $("#linkDiv").append('<div class="col-sm-8"><iframe src="'+value.hyperLink+'" width="800" height="800"></iframe></div>');
             }
         });
-        $("#questions").append('<div class="col-12 text-right" id="buttonsDiv"></div>');
+        activeDiv.append('<div class="col-12 text-right" id="buttonsDiv"></div>');
         if(!nextQuestion.first){
             $("#buttonsDiv").append('<button type="button" class="btn" onclick="loadPrevQuestion()" >Previous</button>');
-            // $("#buttonsDiv").append('<button type="button" class="btn btn-info" onclick="loadPrevQuestion()">Previous</button>');
         }
         if(nextQuestion.last){
             isLast=true;
             $("#buttonsDiv").append('<button type="button" class="btn" onclick="submitAnswer()" >Submit</button>');
-            // $("#questions").append('<button type="button" class="btn btn-success" onclick="submitAnswer()">Submit</button>');
         } else {
             $("#buttonsDiv").append('<button type="button" class="btn" onclick="getNextQuestion()" >Next</button>');
-            // $("#questions").append('<button type="button" class="btn btn-success" onclick="getNextQuestion()">Next</button>');
         }
 
 
@@ -104,7 +110,7 @@ function redirectToLogin() {
 }
 
 function loadPrevQuestion(){
-    isLast=false;
+    isLast=false;isLinkQuestion = false;
     let user = sessionStorage.getItem("user");
     if (user) {
         let userObj = JSON.parse(user);

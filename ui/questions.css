@@ -1,3 +1,9 @@
+#linkDiv{
+    display: none;
+}
+#questions{
+    display: none;
+}
 html {
     height: 100%;
     background-color: #eeeeee;
